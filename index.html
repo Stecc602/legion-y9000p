@@ -56,35 +56,35 @@ nav .links a:hover { color: #fff; }
 .hero-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(76,194,255,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(160,100,255,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(255,80,80,0.06) 0%, transparent 50%),
-    #000;
-  animation: heroGlow 6s ease-in-out infinite alternate;
+    linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.85) 100%),
+    url('images/Lenovo-launches-new-Legion-Y9000P-gaming-laptop-with-290HX-Plus.jpg') center/cover no-repeat;
+  animation: heroZoom 8s ease-in-out infinite alternate;
 }
-@keyframes heroGlow {
-  0%   { opacity: 0.8; }
-  100% { opacity: 1; }
+@keyframes heroZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.05); }
 }
 .hero-content { position: relative; z-index: 1; }
 .hero .badge {
   display: inline-block;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 100px;
   padding: 6px 20px;
   font-size: 0.75rem; letter-spacing: 1.5px;
-  color: #a1a1a6;
+  color: #f5f5f7;
   margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.2);
 }
 .hero h1 {
   font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 700; letter-spacing: -1px;
   line-height: 1.1; color: #fff;
 }
-.hero h1 small { display: block; font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 400; color: #86868b; letter-spacing: 4px; margin-top: 8px; }
+.hero h1 small { display: block; font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 400; color: #a1a1a6; letter-spacing: 4px; margin-top: 8px; }
 .hero .subtitle {
   font-size: clamp(1rem, 1.8vw, 1.35rem);
-  color: #86868b; margin-top: 20px; max-width: 600px;
+  color: #a1a1a6; margin-top: 20px; max-width: 600px;
 }
 .hero .price {
   margin-top: 36px; font-size: 1.1rem; color: #a1a1a6;
@@ -107,6 +107,17 @@ section { padding: 120px max(22px, calc((100vw - 1200px) / 2)); }
   font-size: 1.1rem; color: #86868b; max-width: 560px; line-height: 1.7;
 }
 
+/* ===== Highlight Image ===== */
+.highlight-image-wrap {
+  margin-top: 64px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.highlight-image-wrap img {
+  width: 100%; height: auto; display: block;
+}
+
 /* ===== Display ===== */
 .display-section { background: #000; }
 .display-grid {
@@ -116,25 +127,16 @@ section { padding: 120px max(22px, calc((100vw - 1200px) / 2)); }
 .display-visual {
   position: relative;
   aspect-ratio: 16/10;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 40%, #0f0f1a 100%);
+  background: url('images/Lenovo-launches-new-Legion-Y9000P-gaming-laptop-with-290HX-Plus.jpg') center/cover no-repeat;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.08);
   overflow: hidden;
   box-shadow: 0 0 120px rgba(76,194,255,0.06);
 }
-.display-visual .screen-content {
-  position: absolute; inset: 8% 6%;
-  border-radius: 4px;
-  background:
-    linear-gradient(180deg, rgba(20,30,60,0.9) 0%, rgba(10,15,30,0.95) 100%);
-  border: 1px solid rgba(255,255,255,0.05);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.8rem; color: rgba(255,255,255,0.3); letter-spacing: 2px;
-}
 .display-visual .glare {
   position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(255,255,255,0.04) 0%, transparent 40%,
+    rgba(255,255,255,0.03) 0%, transparent 40%,
     transparent 60%, rgba(255,255,255,0.02) 100%);
 }
 .display-stats { display: flex; flex-direction: column; gap: 32px; }
@@ -256,6 +258,7 @@ footer .footer-links a:hover { color: #fff; }
 @media (max-width: 1024px) {
   .display-grid { grid-template-columns: 1fr; gap: 48px; }
   .perf-cards { grid-template-columns: repeat(2, 1fr); }
+  .hero { min-height: 500px; }
 }
 @media (max-width: 640px) {
   nav .links { gap: 16px; }
@@ -296,6 +299,17 @@ footer .footer-links a:hover { color: #fff; }
   </div>
 </section>
 
+<!-- Highlights Image -->
+<section style="padding-bottom: 0;">
+  <div class="fade-up">
+    <p class="section-label">核心亮点</p>
+    <h2 class="section-title">全维度硬核实力。</h2>
+  </div>
+  <div class="highlight-image-wrap fade-up">
+    <img src="images/Core-highlights-of-the-2026-Legion-Y9000P-gaming-laptop-with-290HX-Plus.jpg" alt="Y9000P 核心亮点">
+  </div>
+</section>
+
 <!-- Display -->
 <section class="display-section" id="display">
   <div class="fade-up">
@@ -305,7 +319,6 @@ footer .footer-links a:hover { color: #fff; }
   </div>
   <div class="display-grid">
     <div class="display-visual fade-up">
-      <div class="screen-content">16" 2560×1600 OLED</div>
       <div class="glare"></div>
     </div>
     <div class="display-stats fade-up">
